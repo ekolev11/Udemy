@@ -37,8 +37,24 @@ body{
 }
 .container2{
     display: grid;
-    grid-template: ;
+    grid-template: 25% 25% 50% / 25% 50% 25%;
     width: 100%;
     height: 100vh;
-
+    margin-top: 10%;
+}
+.eugene{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.eugenepic{
+    margin-top: 20%;
+    margin-bottom: 10%;
+    border-radius: 50%;
+}
+.eugeneheading{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    font-size: 1.3rem;
 }
