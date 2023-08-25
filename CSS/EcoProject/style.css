@@ -62,10 +62,11 @@ align-items: center;
 }
 .container2{
     display: grid;
-    grid-template: 25% 5% 25% 5%/ 25% 20% 30%;
+    grid-template: 45% 45% / 25% 20% 50%;
     width: 100%;
-    height: 60%;
-    margin-top: 10%;
+    height: 100%;
+    margin-top: 2%;
+    row-gap: 2rem;
     
 }
 .skillheading{
@@ -79,16 +80,16 @@ align-items: center;
     grid-area: 1 / 2;
 }
 .giftext{
-    grid-area: 1 / 3;
     margin-top: 0;
+    grid-area: 1 / 3;
     font-size: 1.2rem;
 }
 .gif2{
-    grid-area: 3 / 2;
+    grid-area: 2 / 2;
 }
 .giftext2{
-    grid-area: 3 / 3;
     margin-top: 0;
+    grid-area: 2 / 3;
     font-size: 1.2rem;
 }
 
@@ -99,16 +100,22 @@ ul{
 li:before{
    content: '✅'; 
 }
-.buttoncont{
-    display: grid;
-    grid-template: 10% / 25% 50% ;
+.btn{
+    display: flex;
+    justify-content: center;
 }
-button{
-    margin-left: 25%;
-    grid-area: 1 / 2;
-    background-color: aquamarine;
-    font-size: 19px;
+.button{
+    margin-top: 4%;
     height: 40px;
     width: 200px;
-    
+    font-size: 1.8rem;
+    border: solid green;
+    background-color: brown;
+    color: yellow;
+    border-radius: 10%;
+
+}
+#footer{
+    margin-top: 5%;
+    font-size: 1.2rem;
 }
