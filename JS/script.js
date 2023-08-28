@@ -1,4 +1,6 @@
-function test(){
-var a = "same";
-console.log(a.slice(0, 1).toUpperCase() + a.slice(1, 999));
-}test()   
+function bmiCalc(weight, height){
+    var result = weight / (height * height);
+    return Math.round(result);
+}
+var bmi = bmiCalc(65, 1.8)
+console.log(bmi); 
