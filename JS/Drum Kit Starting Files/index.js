@@ -1,14 +1,25 @@
+
+//Detecting button pressed.
+
 const buttons = document.querySelectorAll(".drum");
 var audio = new Audio('sounds/tom-1.mp3')
 for(var i = 0;i < buttons.length;i++){
     buttons[i].addEventListener("click", function(){
         var buttonInnerHTML = this.innerHTML;
         makeSound(buttonInnerHTML);
+        buttonAnimation(buttonInnerHTML);
 });
 }
+
+//Detecting keyboard button pressed.
+
 document.addEventListener("keypress", function (e){
     makeSound(e.key);
+    buttonAnimation(e.key);
 });
+
+//Playing sound function depending on the button pressed.
+
 function makeSound(key){
     switch(key){
         case "w":
@@ -41,4 +52,15 @@ function makeSound(key){
         break;
         default: console.log(buttonPressed, buttonInnerHTML);
     }
+}
+
+
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+
+    }, 100);
 }
