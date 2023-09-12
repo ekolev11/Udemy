@@ -4,7 +4,7 @@ var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
 var gameRunning = true;
-var keyPressCount = 0;
+var keyPressCount = 1;
 
 function nextSequence(){
     level++
@@ -23,7 +23,8 @@ $(".btn").on("click", function (){
     playSound(userChosenColor);
     animatePress(userChosenColor);
     keyPressCount = 0;
-    console.log(buttonColors.indexOf(userChosenColor));
+    var colorIndex = buttonColors.indexOf(userChosenColor);
+    checkAnswer(colorIndex)
     
     
 
@@ -61,14 +62,24 @@ function animatePress(currentColour){
     }, 100);
 }
 $(document).on('keydown', function(){
-    keyPressCount++
+    
     if(keyPressCount === 1){
-        nextSequence()
         keyPressCount++
+        nextSequence()
     }
+
 });
 
 function checkAnswer(currentLevel){
-
-
+    var lastButton = gamePattern.pop();
+    if(buttonColors[currentLevel] === lastButton){
+        console.log("success");
+        gamePattern.push(lastButton)
+        setTimeout(function() {
+            nextSequence()
+        }, 1000);
+    }else{
+        console.log("wrong");
+    }
+   
 }
