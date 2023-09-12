@@ -71,15 +71,18 @@ $(document).on('keydown', function(){
 });
 
 function checkAnswer(currentLevel){
-    var lastButton = gamePattern.pop();
-    if(buttonColors[currentLevel] === lastButton){
-        console.log("success");
-        gamePattern.push(lastButton)
-        setTimeout(function() {
-            nextSequence()
-        }, 1000);
+    var colorCheck = gamePattern.pop();
+    if(buttonColors[currentLevel] === colorCheck){
+        gamePattern.push(colorCheck);
+        console.log(userClickedPattern);
+        console.log(gamePattern);
+        if(JSON.stringify(userClickedPattern) === JSON.stringify(gamePattern)){
+            setTimeout(function() {
+                nextSequence()
+            }, 1000);
+        }
     }else{
-        console.log("wrong");
+        
     }
    
 }
