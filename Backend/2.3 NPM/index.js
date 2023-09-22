@@ -1,4 +1,11 @@
-let generateName = require("sillyname");
-let sillyname = generateName();
+//let generateName = require("sillyname");
 
-console.log(`My name is ${sillyname}`);
+// import generateName from "sillyname";
+// let sillyname = generateName();
+
+
+
+import superheroes from "superheroes";
+let heroName = superheroes.random();
+
+console.log(`I am ${heroName}!`);
