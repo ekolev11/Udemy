@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // This ensures that the DOM is fully loaded before trying to access elements.
-
     const addItemButton = document.querySelector(".addItem");
     const inputElement = document.querySelector(".input");
     const inputCont = document.querySelector(".inputField")
@@ -100,5 +98,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //   }
  
-}); 
-
+});
