@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const inputCont = document.querySelector(".inputField")
     const bottomContainer = document.querySelector(".bottomContainer")
     const sendToDoButton = document.querySelector(".sendTodo");
-    const deleteNoteBtn = "";
+    
     let noteID = 0;
     
     function addTodo(){
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         newLiItem.innerHTML = `
         <div class="checkText">
             <div class="wrapper"><input class="check, check${noteID}" type="checkbox"></div>
-                <p class="noteText${noteID}">${inputValue}</p>
+                <p class="noteText noteText${noteID}">${inputValue}</p>
             </div>
                 <div class="rightBtn">
                 <button class="edit edit${noteID}" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -27,19 +27,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg></button>
             </div>`;
             noteID++
-            console.log(inputValue);
-            
             liBox.appendChild(newLiItem);
             textField.value = "";
         }
     }
-    document.querySelector(".items").addEventListener("click", function(event) {
+
+    document.querySelector(".items").addEventListener("click", (event) => {
       const clickedElement = event.target.closest("button");
-       if (clickedElement && clickedElement.classList.contains("delete")) {
-        const itemToRemove = document.getElementById(`note-${clickedElement.className.slice(-1)}`);
-        if (itemToRemove) {
-            itemToRemove.remove();
-        }
+       if (clickedElement.classList.contains("delete")) {
+        const itemToRemove = clickedElement.closest("li");
+        itemToRemove.remove();
+    }if(clickedElement.classList.contains("edit")){
+        const itemToEdit = clickedElement.closest("p") //ur here
+
     }
       console.log(clickedElement.className);
     });
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
             addItemButton.classList.toggle("clicked");
             inputCont.classList.toggle("active");
             inputElement.classList.toggle("active");
-
     });
       
       let textField = document.querySelector(".textArea");
