@@ -38,7 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const itemToRemove = clickedElement.closest("li");
         itemToRemove.remove();
     }if(clickedElement.classList.contains("edit")){
-        const itemToEdit = clickedElement.closest("p") //ur here
+        
+        
+        //ur here
 
     }
       console.log(clickedElement.className);
