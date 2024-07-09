@@ -38,12 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const itemToRemove = clickedElement.closest("li");
         itemToRemove.remove();
     }if(clickedElement.classList.contains("edit")){
+        const paragraph = document.querySelector(".noteText" + noteID);
+        const list = clickedElement.closest("li");
+        const input = document.createElement("input");
+        console.log(document.querySelector(".notetext" + noteID)); 
+        console.log(list);
+    
         
-        
+       
         //ur here
 
     }
-      console.log(clickedElement.className);
+      
     });
     sendToDoButton.addEventListener("click", function(){
         addTodo();
