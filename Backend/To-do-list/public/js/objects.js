@@ -32,25 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    document.querySelector(".items").addEventListener("click", (event) => {
-      const clickedElement = event.target.closest("button");
-       if (clickedElement.classList.contains("delete")) {
-        const itemToRemove = clickedElement.closest("li");
-        itemToRemove.remove();
-    }if(clickedElement.classList.contains("edit")){
-        const paragraph = document.querySelector(".noteText" + noteID);
-        const list = clickedElement.closest("li");
-        const input = document.createElement("input");
-        console.log(document.querySelector(".notetext" + noteID)); 
-        console.log(list);
     
-        
-       
-        //ur here
-
-    }
-      
-    });
     sendToDoButton.addEventListener("click", function(){
         addTodo();
         //addToDo
@@ -81,4 +63,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
       })
     
+
+      document.querySelector(".items").addEventListener("click", (event) => {
+      const clickedElement = event.target.closest("button");
+       if (clickedElement.classList.contains("delete")) {
+        const itemToRemove = clickedElement.closest("li");
+        itemToRemove.remove();
+    }if(clickedElement.classList.contains("edit")){
+        const id = noteID;
+        const className = ".noteText" + id;
+        const list = clickedElement.closest("li");
+        let paragraph = this.querySelector(className);
+        
+        const input = document.createElement("input");
+        console.log(paragraph); 
+        console.log(list);
+    
+        
+       
+        //ur here
+
+    }
+      
+    });
 });
