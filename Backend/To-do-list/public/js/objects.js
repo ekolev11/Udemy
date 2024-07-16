@@ -71,11 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
         itemToRemove.remove();
     }else if(clickedElement.classList.contains("edit")){
         const list = clickedElement.closest("li");
-        let className = 'noteText' + noteID;
         const paragraph = list.querySelector(".noteText");
         const input = document.createElement("input");
-        console.log(className); 
-        console.log(paragraph);
+        input.value = paragraph.textContent;
+        paragraph.replaceWith(input);
     
         
        
