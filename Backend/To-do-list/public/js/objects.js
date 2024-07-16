@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const list = clickedElement.closest("li");
         const paragraph = list.querySelector(".noteText");
         const input = document.createElement("input");
+        input.classList.add("rightItems", "rightItemsInput");
         input.value = paragraph.textContent;
         paragraph.replaceWith(input);
     

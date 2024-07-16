@@ -303,6 +303,13 @@ textarea::-webkit-scrollbar-thumb{
 .delete{
     cursor: pointer;
 }
+.rightItemsInput{
+    height: fit-content;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-color: rgb(255, 255, 255);
+}
 /* }.input > input{
     height: 50px;
     width: 100%;
