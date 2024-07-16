@@ -66,18 +66,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
       document.querySelector(".items").addEventListener("click", (event) => {
       const clickedElement = event.target.closest("button");
+      const itemToRemove = clickedElement.closest("li");
        if (clickedElement.classList.contains("delete")) {
-        const itemToRemove = clickedElement.closest("li");
         itemToRemove.remove();
-    }if(clickedElement.classList.contains("edit")){
-        const id = noteID;
-        const className = ".noteText" + id;
+    }else if(clickedElement.classList.contains("edit")){
         const list = clickedElement.closest("li");
-        let paragraph = this.querySelector(className);
-        
+        let className = 'noteText' + noteID;
+        const paragraph = list.querySelector(".noteText");
         const input = document.createElement("input");
-        console.log(paragraph); 
-        console.log(list);
+        console.log(className); 
+        console.log(paragraph);
     
         
        
