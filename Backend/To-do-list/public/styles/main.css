@@ -306,10 +306,20 @@ textarea::-webkit-scrollbar-thumb{
 .rightItemsInput{
     height: fit-content;
     border: none;
-    padding: 0;
+    padding-left: 100%;
     margin: 0;
-    outline-color: rgb(255, 255, 255);
+    outline-color: rgb(70, 70, 70);
+    
+    
 }
+.rightItemsInput{
+    outline-color: green;
+    padding-left: 0.3%;
+}
+
+
+
+
 /* }.input > input{
     height: 50px;
     width: 100%;
