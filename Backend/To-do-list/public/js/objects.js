@@ -18,7 +18,10 @@ document.addEventListener("DOMContentLoaded", function() {
         newLiItem.innerHTML = `
         <div class="checkText">
             <div class="wrapper"><input class="check, check${noteID}" type="checkbox"></div>
-                <p class="noteText noteText${noteID}">${inputValue}</p>
+            <div class="noteText noteText${noteID}">
+            <p class="text text${noteID}">${inputValue}</p>
+            </div>
+                
             </div>
                 <div class="rightBtn">
                 <button class="edit edit${noteID}" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -71,11 +74,16 @@ document.addEventListener("DOMContentLoaded", function() {
         itemToRemove.remove();
     }else if(clickedElement.classList.contains("edit")){
         const list = clickedElement.closest("li");
-        const paragraph = list.querySelector(".noteText");
-        const input = document.createElement("input");
+        const paragraph = list.querySelector(".text");
+        const textDiv = list.querySelector(".noteText");
+        const input = document.createElement("textarea");
         input.classList.add("rightItems", "rightItemsInput");
         input.value = paragraph.textContent;
-        paragraph.replaceWith(input);
+        paragraph.replaceWith(input)
+        
+
+        
+        console.log(paragraph);
     
         
        

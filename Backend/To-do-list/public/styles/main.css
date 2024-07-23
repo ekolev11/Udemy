@@ -77,16 +77,24 @@
     padding: 1%;
     border-radius: 8px;
 
-}.checkText, .rightBtn{
+}.checkText{
+    width: 100%;
+    height: 100%;
+}
+.checkText, .rightBtn{
     display: flex;
-    align-items: center;
-    
-}.wrapper{
+    align-items: center;   
+}
+.wrapper{
     display: flex;
     justify-content: center;
     min-width: 2rem;
     height: 2rem;
     margin-right: 10px;
+}
+.noteText{
+    width: 100%;
+    height: 100%;
 }
 input[type="checkbox"]{
     appearance: none;
@@ -136,6 +144,8 @@ input[type="checkbox"]:checked::after{
     fill: black;
 }
 .rightSection{
+    max-width: 60%;
+    max-height: 100%;
     min-width: 60%;
     min-height: 100%;
     display: flex;
@@ -304,18 +314,14 @@ textarea::-webkit-scrollbar-thumb{
     cursor: pointer;
 }
 .rightItemsInput{
-    height: fit-content;
+    width: 100%;
     border: none;
-    padding-left: 100%;
+    padding: 0;
     margin: 0;
     outline-color: rgb(70, 70, 70);
     
-    
 }
-.rightItemsInput{
-    outline-color: green;
-    padding-left: 0.3%;
-}
+
 
 
 
