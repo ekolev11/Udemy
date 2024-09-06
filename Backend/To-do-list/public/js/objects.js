@@ -1,9 +1,14 @@
+// import { text } from "body-parser";
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const addItemButton = document.querySelector(".addItem");
     const inputElement = document.querySelector(".input");
     const inputCont = document.querySelector(".inputField")
     const bottomContainer = document.querySelector(".bottomContainer")
     const sendToDoButton = document.querySelector(".sendTodo");
+    let editInput = document.querySelector(".rightItemsInput");
+
     
     let noteID = 0;
     
@@ -73,23 +78,29 @@ document.addEventListener("DOMContentLoaded", function() {
        if (clickedElement.classList.contains("delete")) {
         itemToRemove.remove();
     }else if(clickedElement.classList.contains("edit")){
+        
         const list = clickedElement.closest("li");
         const paragraph = list.querySelector(".text");
         const textDiv = list.querySelector(".noteText");
         const input = document.createElement("textarea");
+        const paragraphStyles = window.getComputedStyle(textDiv);
         input.classList.add("rightItems", "rightItemsInput");
+        input.style.height = paragraphStyles.height;
         input.value = paragraph.textContent;
         paragraph.replaceWith(input)
-        
-
-        
         console.log(paragraph);
-    
-        
-       
         //ur here
-
     }
       
+    });
+
+    editInput.addEventListener("keydown", function(e){
+        let keyName1 = e.key;
+        console.log(editInput);
+        if (keyName1 === "Enter"){
+            e.preventDefault;
+            console.log("zdravei");
+        }
+        
     });
 });
