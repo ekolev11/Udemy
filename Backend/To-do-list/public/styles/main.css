@@ -136,6 +136,8 @@ input[type="checkbox"]:checked::after{
     justify-content: center;
     align-items: center;
     border: solid black 3.5px;
+    cursor: pointer;
+    
 }
 .edit > svg, .delete > svg{
     fill: black;
@@ -308,16 +310,14 @@ textarea::-webkit-scrollbar-thumb{
     display: flex;
     color: black;
 }
-.delete{
-    cursor: pointer;
-}
+
 .rightItemsInput{
-    width: 250%;
+    width: 500px;
     border: none;
     height: fit-content;
     padding: 0;
     margin: 0;
     outline-color: rgb(70, 70, 70);
     resize: none;
-       
+    
 }
