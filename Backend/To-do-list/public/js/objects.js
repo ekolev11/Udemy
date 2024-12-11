@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const bottomContainer = document.querySelector(".bottomContainer")
     const sendToDoButton = document.querySelector(".sendTodo");
     let editInput = document.querySelector(".rightItemsInput");
-    
-
-    
     let noteID = 0;
     
     function addTodo(){
@@ -26,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="wrapper"><input class="check, check${noteID}" type="checkbox"></div>
             <div class="noteText noteText${noteID}">
             <p class="text text${noteID}">${inputValue}</p>
+            <input class="editInput"/>
             </div>
                 
             </div>
@@ -39,26 +37,20 @@ document.addEventListener("DOMContentLoaded", function() {
             noteID++
             liBox.appendChild(newLiItem);
             textField.value = "";
-            
         }
     };
 
-    
     sendToDoButton.addEventListener("click", function(){
         addTodo();
         //addToDo
      });
-    
-
     addItemButton.addEventListener("click", function() {
             bottomContainer.classList.toggle("active");
             addItemButton.classList.toggle("clicked");
             inputCont.classList.toggle("active");
             inputElement.classList.toggle("active");
     });
-      
       let textField = document.querySelector(".textArea");
-      
       textField.addEventListener("keydown", function(e){
         let keyName = e.key;
         let inputValue = textField.value;
@@ -67,60 +59,45 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (keyName === "Enter" && inputValue.trim() !== ""){
             addTodo()
-
         }else if (keyName === "Enter" && inputValue.trim() == ""){
-            
         }
-
       });
-    
 
       document.querySelector(".items").addEventListener("click", (event) => {
-
       const clickedElement = event.target;
-      
-      
+
       if(clickedElement.closest("li")){
         const itemToRemove = clickedElement.closest("li");
         if (clickedElement.classList && clickedElement.classList.contains("deleteBtn")) {
         clickedElement.closest("li").remove();
       }
-       
     };
-   
-      
-      
-
-       
 
     if(clickedElement.classList.contains("editBtn")){
         const list = clickedElement.closest("li");
         const paragraph = list.querySelector(".text");
         const textDiv = list.querySelector(".noteText");
-        const input = document.createElement("textarea");
+        const input = list.querySelector(".editInput");
         const paragraphStyles = window.getComputedStyle(textDiv);
         input.classList.add("rightItems", "rightItemsInput", "editField");
         input.style.height = paragraphStyles.height;
         input.value = paragraph.textContent;
-        paragraph.replaceWith(input)
+        paragraph.style.display = 'none';
+        input.style.display = 'flex';   
     }
-
         document.querySelector(".editField").addEventListener("keydown", function (e){
-        let input = document.querySelector(".editField");
         let key = e.key;
-        
-        if (key === "Enter"){
-             e.preventDefault();
-            // let newValue = input.innerHTML;
-            // paragraph.textContent = input.textContent;
-            console.log(input.textContent);
             
+        if (key === "Enter"){
+            e.preventDefault();
+            let editField = document.querySelector(".editInput");
+            let pElement = document.querySelector(".text")
+             pElement.textContent = editField.value;
+             editField.style.display = "none";
+            pElement.style.display = "block";
         }
-
     })
-
     });
-    
 });
     
 

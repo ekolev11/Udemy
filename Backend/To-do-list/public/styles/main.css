@@ -321,3 +321,6 @@ textarea::-webkit-scrollbar-thumb{
     resize: none;
     
 }
+.editInput{
+    display: none;
+}
