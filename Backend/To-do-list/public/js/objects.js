@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function() {
        
 
     if(clickedElement.classList.contains("editBtn")){
-        const editField = clickedElement.closest("textarea")
         const list = clickedElement.closest("li");
         const paragraph = list.querySelector(".text");
         const textDiv = list.querySelector(".noteText");
@@ -104,14 +103,23 @@ document.addEventListener("DOMContentLoaded", function() {
         input.style.height = paragraphStyles.height;
         input.value = paragraph.textContent;
         paragraph.replaceWith(input)
-        //ur here   
-    }if(clickedElement.classList.contains("editField")){
-        console.log("yoo");
     }
-    
+
+        document.querySelector(".editField").addEventListener("keydown", function (e){
+        let input = document.querySelector(".editField");
+        let key = e.key;
+        
+        if (key === "Enter"){
+             e.preventDefault();
+            // let newValue = input.innerHTML;
+            // paragraph.textContent = input.textContent;
+            console.log(input.textContent);
+            
+        }
+
+    })
+
     });
-    
-   
     
 });
     
